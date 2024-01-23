@@ -29,7 +29,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
 //        http.authorizeRequests().antMatchers("/users/**").permitAll();
         http.authorizeRequests().antMatchers("/actuator/**").permitAll();
         http.authorizeRequests().antMatchers("/**")
-                .hasIpAddress(env.getProperty("spring.cloud.client.ip-address"))
+//                .hasIpAddress(env.getProperty("spring.cloud.client.ip-address"))
+//                .permitAll()
+                .hasIpAddress("172.18.0.0/16")
                 .and()
                 .addFilter(getAuthenticationFilter());
         http.headers().frameOptions().disable();    // 이거 안하면 h2-console 접근 못함
