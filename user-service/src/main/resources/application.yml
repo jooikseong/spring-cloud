@@ -41,7 +41,8 @@ greeting:
 logging:
   level:
     com.example.userservice.client: debug
-
+  file:
+    name: /api-logs/users-ws.log
 
 #token:
 #  expiration_time: 86400000
